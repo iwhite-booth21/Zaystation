@@ -1,0 +1,216 @@
+[
+    {
+        "label": "Character",
+        "importPath": "character",
+        "description": "character",
+        "isExtraImport": true,
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "player_status",
+        "importPath": "character",
+        "description": "character",
+        "isExtraImport": true,
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "converter",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "converter",
+        "description": "converter",
+        "detail": "converter",
+        "documentation": {}
+    },
+    {
+        "label": "clock",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "clock",
+        "description": "clock",
+        "detail": "clock",
+        "documentation": {}
+    },
+    {
+        "label": "Status",
+        "kind": 6,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "class Status:\n    def __init__(self, condition):\n        self._condition = condition \n    @property\n    def condition(self):\n        return self._condition\n    @condition.setter\n    def condition(self, new_condition):\n        if new_condition != self._condition:\n            self._condition = new_condition",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Enemy",
+        "kind": 6,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "class Enemy:\n    def __init__(self, health, armor, status, level):\n        self.health = health \n        self.armor = armor\n        self.status = status\n        self.level = level\n    @property\n    def damage(self):\n        return self.health\n    @damage.setter",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Character",
+        "kind": 6,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "class Character:\n    def __init__(self, name,  race, current_level, health, ability, armor, status):\n        self.name = name\n        self.race = race\n        self.current_level = current_level\n        self.health = health\n        self.ability = ability\n        self.armor = armor \n        self.status = status\n# main code area",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Default_Characters",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Default_Characters = [\n    Character(\"Eric the Barbarian\", \"Eldian\", 25, 100, \"Super Perception\", \"Ebony Armor\", player_status),\n    Character(\"Gladys the Healer\", \"Noble\", 15, 95, \"Party Heal\", \"Angel Fabric\", player_status),\n    Character(\"Edward Elric\", \"Alchemist Elite\",75,100, \"Transmute\", player_status),\n    Character(\"Jade the Battler\", \"Orc\", 10, 85, \"Bereserk\", \"Battle Grieves\", player_status) \n    ]\nDefault_Enemies = [\n]\nEric = Default_Characters[0]\nGladys = Default_Characters[1]",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Default_Enemies",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Default_Enemies = [\n]\nEric = Default_Characters[0]\nGladys = Default_Characters[1]\nEdward = Default_Characters[2]\nJade = Default_Characters[3]\nEnemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      ",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Eric",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Eric = Default_Characters[0]\nGladys = Default_Characters[1]\nEdward = Default_Characters[2]\nJade = Default_Characters[3]\nEnemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Gladys",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Gladys = Default_Characters[1]\nEdward = Default_Characters[2]\nJade = Default_Characters[3]\nEnemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Edward",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Edward = Default_Characters[2]\nJade = Default_Characters[3]\nEnemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Jade",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Jade = Default_Characters[3]\nEnemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Enemy_Status",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Enemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Gogoblin",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Gogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "player_status",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "player_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "BillyBob",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "BillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "BillyBob",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "BillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "make_m",
+        "kind": 2,
+        "importPath": "converter",
+        "description": "converter",
+        "peekOfCode": "def make_me (secret_statement):\n    ascii_phrase = []\n    new_phrase = \"\"\n    print(\"original: \" + secret_statement)\n    for letter in secret_statement:\n        if letter.isalpha():\n            new_letter = chr(ord(letter)+ 2)\n            new_phrase += new_letter\n            ascii_phrase.append(ord(new_letter))\n        else:",
+        "detail": "converter",
+        "documentation": {}
+    },
+    {
+        "label": "secret_statement",
+        "kind": 5,
+        "importPath": "converter",
+        "description": "converter",
+        "peekOfCode": "secret_statement = input(\"Give me a secret phrase: \")\nif len(secret_statement) > 0:\n    new_ascii, new_phrase = make_me(secret_statement)\n    print(new_ascii)\n    print(new_phrase)",
+        "detail": "converter",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def main():\n    print(\"this is the main prorgam..... Other functionality is incoming.\")\n    # print(clock.clocktext)\nmain()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "my_word",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "my_word = input(\"Passkey: \") \ndef main():\n    print(\"this is the main prorgam..... Other functionality is incoming.\")\n    # print(clock.clocktext)\nmain()",
+        "detail": "main",
+        "documentation": {}
+    }
+]
