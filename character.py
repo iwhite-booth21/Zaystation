@@ -1,4 +1,7 @@
 
+import random
+
+
 class Status:
     def __init__(self, condition):
         self._condition = condition 
@@ -24,8 +27,9 @@ class Status:
 
 
 class Enemy:
-    def __init__(self, health, armor, status, level):
+    def __init__(self, health, name, armor, status, level):
         self.health = health 
+        self.name = name
         self.armor = armor
         self.status = status
         self.level = level
@@ -43,6 +47,15 @@ class Enemy:
         return self.health
     def get_health(self):
         return int(self.health)
+    def attack(self, character):
+        damage = random.randint(5, 45)  # Generate a random damage value
+        character.damage_taken(damage)
+        print(f"{self.name} attacks {character.name} for {damage} damage.")
+        
+        if character.health <= 0:
+            print(f"{character.name} has been defeated!")
+        
+        return damage
 
 
 class Character:
@@ -68,23 +81,53 @@ class Character:
         return self.health
     def get_health(self):
         return int(self.health)
+    def attack(self, enemy):
+        damage = random.randint(10, 50)  # Generate a random damage value
+        enemy.damage_taken(damage)
+        print(f"{self.name} attacks {enemy.name} for {damage} damage.")
         
+        if enemy.health <= 0:
+            print(f"{enemy.name} has been defeated!")
+        
+        return damage
+        
+
+def combatMatrix(player, enemy):
+    while player.health > 0 and enemy.health > 0:
+        player_damage = player.attack(enemy)
+        if enemy.health <= 0:
+            break  # Enemy has been defeated, end combat
+        
+        enemy_damage = enemy.attack(player)
+        if player.health <= 0:
+            break  # Player has been defeated, end combat
+
+        # Print the current health of player and enemy
+        print(f"{player.name}'s Health: {player.health}")
+        print(f"{enemy.name}'s Health: {enemy.health}")
+        print()
+    
+    if player.health > 0:
+        print(f"{player.name} is victorious!")
+    else:
+        print(f"{enemy.name} is victorious!")
+
 
 
 # main code area
 
 Default_Characters = [
-    Character("Eric the Barbarian", "Eldian", 25, 100, "Super Perception", "Ebony Armor", Status(2)),
-    Character("Gladys the Healer", "Noble", 15, 95, "Party Heal", "Angel Fabric", Status(2)),
-    Character("Edward Elric", "Alchemist Elite",75,100, "Transmute", "Tunic", Status(2)),
-    Character("Jade the Battler", "Orc", 10, 85, "Bereserk", "Battle Grieves", Status(2)) 
+    Character("Eric the Barbarian", "Eldian", 25, 250, "Super Perception", "Ebony Armor", Status(2)),
+    Character("Gladys the Healer", "Noble", 15, 150, "Party Heal", "Angel Fabric", Status(2)),
+    Character("Edward Elric", "Alchemist Elite",75,350, "Transmute", "Tunic", Status(2)),
+    Character("Jade the Battler", "Orc", 10, 75, "Bereserk", "Battle Grieves", Status(2)) 
     ]
 
 Default_Enemies = [
-    Enemy("Goblin", "Wooden Armor", Status(1), 8),
-    Enemy("Hobgoblin", "Stone Armor", Status(1), 10),
-    Enemy("Homonculus", "Skin of dead", Status(1), 20),
-    Enemy("Bowser", "Spiky Shell", Status(1), 18)
+    Enemy(200, "Goblin", "Wooden Armor", Status(1), 8),
+    Enemy(200, "Hobgoblin", "Stone Armor", Status(1), 10),
+    Enemy(200, "Homonculus", "Skin of dead", Status(1), 20),
+    Enemy(200, "Bowser", "Spiky Shell", Status(1), 18)
 ]
 
 ## Characters
@@ -102,21 +145,17 @@ Bowser = Default_Enemies[3]
 
 print("Some Default Hero Statuses")
 ## View Character and Enemy Status
-print(Eric.status.get_cond_value())
-print(Gladys.status.get_cond_value())
+print("Eric's Status - " + Eric.status.get_cond_value())
+print("Gladys Status - " + Gladys.status.get_cond_value())
 
-print(Goblin.status.get_cond_value())
-print(Bowser.status.get_cond_value())
+print("Goblin's Status - " + Goblin.status.get_cond_value())
+print("Bowser's Status - " + Bowser.status.get_cond_value())
 
-##Test Increment and Decrement Health
-# print(Eric.damage_taken(15))
-# print(Homonculus.damage_taken(20))
+## Test Increment and Decrement Health
+print(Eric.damage_taken(15))
+print(Homonculus.damage_taken(20))
+
+combatRes = combatMatrix(Eric, Goblin)
 
 
-Enemy_Status = Status(3)
-Gogoblin = Enemy(100,"Armor of thorns", Enemy_Status, 8)
-print(Gogoblin.damage_taken(20))
 
-player_status = Status(5)      
-BillyBob = Character("Jerry", "Brenton", 5, 100, "Fire Fist", "None", player_status)
-print(BillyBob.status.get_cond_value())
