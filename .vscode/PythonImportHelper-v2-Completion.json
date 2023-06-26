@@ -1,21 +1,5 @@
 [
     {
-        "label": "Character",
-        "importPath": "character",
-        "description": "character",
-        "isExtraImport": true,
-        "detail": "character",
-        "documentation": {}
-    },
-    {
-        "label": "player_status",
-        "importPath": "character",
-        "description": "character",
-        "isExtraImport": true,
-        "detail": "character",
-        "documentation": {}
-    },
-    {
         "label": "datetime",
         "kind": 6,
         "isExtraImport": true,
@@ -74,7 +58,7 @@
         "kind": 6,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "class Character:\n    def __init__(self, name,  race, current_level, health, ability, armor, status):\n        self.name = name\n        self.race = race\n        self.current_level = current_level\n        self.health = health\n        self.ability = ability\n        self.armor = armor \n        self.status = status\n# main code area",
+        "peekOfCode": "class Character:\n    def __init__(self, name,  race, current_level, health, ability, armor, status):\n        self.name = name\n        self.race = race\n        self.current_level = current_level\n        self.health = health\n        self.ability = ability\n        self.armor = armor \n        self.status = status\n    @property",
         "detail": "character",
         "documentation": {}
     },
@@ -83,7 +67,7 @@
         "kind": 5,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "Default_Characters = [\n    Character(\"Eric the Barbarian\", \"Eldian\", 25, 100, \"Super Perception\", \"Ebony Armor\", player_status),\n    Character(\"Gladys the Healer\", \"Noble\", 15, 95, \"Party Heal\", \"Angel Fabric\", player_status),\n    Character(\"Edward Elric\", \"Alchemist Elite\",75,100, \"Transmute\", player_status),\n    Character(\"Jade the Battler\", \"Orc\", 10, 85, \"Bereserk\", \"Battle Grieves\", player_status) \n    ]\nDefault_Enemies = [\n]\nEric = Default_Characters[0]\nGladys = Default_Characters[1]",
+        "peekOfCode": "Default_Characters = [\n    Character(\"Eric the Barbarian\", \"Eldian\", 25, 100, \"Super Perception\", \"Ebony Armor\", Status(2)),\n    Character(\"Gladys the Healer\", \"Noble\", 15, 95, \"Party Heal\", \"Angel Fabric\", Status(2)),\n    Character(\"Edward Elric\", \"Alchemist Elite\",75,100, \"Transmute\", \"Tunic\", Status(2)),\n    Character(\"Jade the Battler\", \"Orc\", 10, 85, \"Bereserk\", \"Battle Grieves\", Status(2)) \n    ]\nDefault_Enemies = [\n    Enemy(\"Goblin\", \"Wooden Armor\", Status(1), 8),\n    Enemy(\"Hobgoblin\", \"Stone Armor\", Status(1), 10),\n    Enemy(\"Homonculus\", \"Skin of dead\", Status(1), 20),",
         "detail": "character",
         "documentation": {}
     },
@@ -92,7 +76,7 @@
         "kind": 5,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "Default_Enemies = [\n]\nEric = Default_Characters[0]\nGladys = Default_Characters[1]\nEdward = Default_Characters[2]\nJade = Default_Characters[3]\nEnemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      ",
+        "peekOfCode": "Default_Enemies = [\n    Enemy(\"Goblin\", \"Wooden Armor\", Status(1), 8),\n    Enemy(\"Hobgoblin\", \"Stone Armor\", Status(1), 10),\n    Enemy(\"Homonculus\", \"Skin of dead\", Status(1), 20),\n    Enemy(\"Bowser\", \"Spiky Shell\", Status(1), 18)\n]\n## Characters\nEric = Default_Characters[0]\nGladys = Default_Characters[1]\nEdward = Default_Characters[2]",
         "detail": "character",
         "documentation": {}
     },
@@ -101,7 +85,7 @@
         "kind": 5,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "Eric = Default_Characters[0]\nGladys = Default_Characters[1]\nEdward = Default_Characters[2]\nJade = Default_Characters[3]\nEnemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "peekOfCode": "Eric = Default_Characters[0]\nGladys = Default_Characters[1]\nEdward = Default_Characters[2]\nJade = Default_Characters[3]\n## Enemies\nGoblin = Default_Enemies[0]\nHobgoblin = Default_Enemies[1]\nHomonculus = Default_Enemies[2]\nBowser = Default_Enemies[3]\nprint(\"Some Default Hero Statuses\")",
         "detail": "character",
         "documentation": {}
     },
@@ -110,7 +94,7 @@
         "kind": 5,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "Gladys = Default_Characters[1]\nEdward = Default_Characters[2]\nJade = Default_Characters[3]\nEnemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)",
+        "peekOfCode": "Gladys = Default_Characters[1]\nEdward = Default_Characters[2]\nJade = Default_Characters[3]\n## Enemies\nGoblin = Default_Enemies[0]\nHobgoblin = Default_Enemies[1]\nHomonculus = Default_Enemies[2]\nBowser = Default_Enemies[3]\nprint(\"Some Default Hero Statuses\")\n## View Character and Enemy Status",
         "detail": "character",
         "documentation": {}
     },
@@ -119,7 +103,7 @@
         "kind": 5,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "Edward = Default_Characters[2]\nJade = Default_Characters[3]\nEnemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)",
+        "peekOfCode": "Edward = Default_Characters[2]\nJade = Default_Characters[3]\n## Enemies\nGoblin = Default_Enemies[0]\nHobgoblin = Default_Enemies[1]\nHomonculus = Default_Enemies[2]\nBowser = Default_Enemies[3]\nprint(\"Some Default Hero Statuses\")\n## View Character and Enemy Status\nprint(Eric.status.get_cond_value())",
         "detail": "character",
         "documentation": {}
     },
@@ -128,7 +112,43 @@
         "kind": 5,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "Jade = Default_Characters[3]\nEnemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "peekOfCode": "Jade = Default_Characters[3]\n## Enemies\nGoblin = Default_Enemies[0]\nHobgoblin = Default_Enemies[1]\nHomonculus = Default_Enemies[2]\nBowser = Default_Enemies[3]\nprint(\"Some Default Hero Statuses\")\n## View Character and Enemy Status\nprint(Eric.status.get_cond_value())\nprint(Gladys.status.get_cond_value())",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Goblin",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Goblin = Default_Enemies[0]\nHobgoblin = Default_Enemies[1]\nHomonculus = Default_Enemies[2]\nBowser = Default_Enemies[3]\nprint(\"Some Default Hero Statuses\")\n## View Character and Enemy Status\nprint(Eric.status.get_cond_value())\nprint(Gladys.status.get_cond_value())\nprint(Goblin.status.get_cond_value())\nprint(Bowser.status.get_cond_value())",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Hobgoblin",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Hobgoblin = Default_Enemies[1]\nHomonculus = Default_Enemies[2]\nBowser = Default_Enemies[3]\nprint(\"Some Default Hero Statuses\")\n## View Character and Enemy Status\nprint(Eric.status.get_cond_value())\nprint(Gladys.status.get_cond_value())\nprint(Goblin.status.get_cond_value())\nprint(Bowser.status.get_cond_value())\n##Test Increment and Decrement Health",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Homonculus",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Homonculus = Default_Enemies[2]\nBowser = Default_Enemies[3]\nprint(\"Some Default Hero Statuses\")\n## View Character and Enemy Status\nprint(Eric.status.get_cond_value())\nprint(Gladys.status.get_cond_value())\nprint(Goblin.status.get_cond_value())\nprint(Bowser.status.get_cond_value())\n##Test Increment and Decrement Health\n# print(Eric.damage_taken(15))",
+        "detail": "character",
+        "documentation": {}
+    },
+    {
+        "label": "Bowser",
+        "kind": 5,
+        "importPath": "character",
+        "description": "character",
+        "peekOfCode": "Bowser = Default_Enemies[3]\nprint(\"Some Default Hero Statuses\")\n## View Character and Enemy Status\nprint(Eric.status.get_cond_value())\nprint(Gladys.status.get_cond_value())\nprint(Goblin.status.get_cond_value())\nprint(Bowser.status.get_cond_value())\n##Test Increment and Decrement Health\n# print(Eric.damage_taken(15))\n# print(Homonculus.damage_taken(20))",
         "detail": "character",
         "documentation": {}
     },
@@ -137,7 +157,7 @@
         "kind": 5,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "Enemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "peekOfCode": "Enemy_Status = Status(3)\nGogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
         "detail": "character",
         "documentation": {}
     },
@@ -146,7 +166,7 @@
         "kind": 5,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "Gogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "peekOfCode": "Gogoblin = Enemy(100,\"Armor of thorns\", Enemy_Status, 8)\nprint(Gogoblin.damage_taken(20))\nplayer_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
         "detail": "character",
         "documentation": {}
     },
@@ -155,7 +175,7 @@
         "kind": 5,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "player_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "peekOfCode": "player_status = Status(5)      \nBillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
         "detail": "character",
         "documentation": {}
     },
@@ -164,16 +184,7 @@
         "kind": 5,
         "importPath": "character",
         "description": "character",
-        "peekOfCode": "BillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())\nplayer_status.decrease_Cond(1)\nBillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
-        "detail": "character",
-        "documentation": {}
-    },
-    {
-        "label": "BillyBob",
-        "kind": 5,
-        "importPath": "character",
-        "description": "character",
-        "peekOfCode": "BillyBob = Character(\"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
+        "peekOfCode": "BillyBob = Character(\"Jerry\", \"Brenton\", 5, 100, \"Fire Fist\", \"None\", player_status)\nprint(BillyBob.status.get_cond_value())",
         "detail": "character",
         "documentation": {}
     },
